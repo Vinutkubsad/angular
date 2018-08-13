@@ -1,0 +1,18 @@
+<div class="main-layout">
+  <div class="input-layout">
+    <input [(ngModel)] = "num1" name ="num1" type="number" placeholder="Input 1">
+    <input [(ngModel)] = "num2" name ="num2" type="number" placeholder="input 2">     
+  </div>
+
+  <div class="result-layout">
+    <p> {{result}} </p>
+  </div>
+
+  <div class="button-layout">
+    <button (click) = 'cal_add()'> Addition </button>
+    <button (click) = 'cal_sub()'> Substract </button>
+    <button (click) = 'cal_mult()'> Multiply </button>
+    <button (click) = 'cal_devide()'> Division </button>
+  </div>
+
+</div>

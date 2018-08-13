@@ -1,0 +1,40 @@
+.main-layout {
+    border: 1px solid black;
+    text-align: center;
+    padding: 20px;
+    margin: 100px 500px;
+}
+
+input{
+     padding: 23px;
+     margin: 30px;
+     font-size: 18px;
+     text-align: center;
+}
+
+input:hover {
+    background-color: lightblue;
+}
+
+button {
+    margin: 20px;
+    padding: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+button:hover {
+    background-color: darkcyan;
+}
+
+p{
+    padding: 20px;
+    border: 1px solid black;
+    width: 20%;
+    text-align: center;
+    align-items: center;
+    margin-left: 35%;
+    font-weight: bold;
+
+}
