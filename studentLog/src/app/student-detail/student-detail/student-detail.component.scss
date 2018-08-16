@@ -1,0 +1,35 @@
+
+
+.layout {
+    display: flex;
+    margin: 20px;
+
+}
+
+.layout .md-form {
+    margin: 20px;
+}
+
+.addres-container {
+    margin-left: 2%;
+    margin-right: 30%;
+}
+
+.btn {
+    margin: 40px;
+    background-color: lightblue;
+    color: black;
+    font-weight: bold;
+    padding: 20px 50px;
+}
+
+.btn:hover {
+    color: white;
+    background-color: blueviolet;
+}
+
+input:hover{
+    background-color:lightcyan;
+    border: none;
+    opacity: 20px;
+}
