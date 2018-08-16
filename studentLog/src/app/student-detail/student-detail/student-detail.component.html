@@ -1,67 +1,92 @@
 
-<!--<form [formGroup]="student-details">-->
-        <div class="layout">
+<form #studentdetail = "ngForm">
+    <div class="layout">
         <!-- User name  -->
             <div class="md-form">
                 <i class="fa fa-user prefix"></i>
-                <input type="text" id="inputIconEx2" class="form-control" placeholder="First name" >
+                <input type="text" id="inputIconEx2" class="form-control" [(ngModel)] = "studentdetail.firstName" placeholder="First name"  name="firstName" #firstName="ngModel" required>
                 <label for="inputIconEx2"></label>
             </div>
 
             <div class="md-form">   
-                    <input type="text" id="inputIconEx2" class="form-control" placeholder="Middle name" >
+                    <input type="text" id="inputIconEx2" class="form-control" placeholder="Middle name" [(ngModel)] = "studentdetail.middlename" name="middlename" #middlename="ngModel" required>
                     <label for="inputIconEx2"></label>
                 </div>
 
             <!-- Last name  -->
             <div class="md-form">
-                    <input type="text" id="inputIconEx2" class="form-control" placeholder="Last name" >
+                    <input type="text" id="inputIconEx2" class="form-control" placeholder="Last name"  [(ngModel)] = "studentdetail.lastName" name="lastName" #lastName="ngModel" required>
                     <label for="inputIconEx2"></label>
                 </div>
 
         </div>
-
+    <!--email adress-->
         <div class="layout">
                 <div class="md-form">
                         <i class="fa fa-envelope prefix"></i>
-                        <input type="text" id="inputIconEx1" class="form-control">
-                        <label for="inputIconEx1">E-mail address</label>
+                        <input type="text" id="inputIconEx1" class="form-control"  placeholder="E-mail adress" [(ngModel)] = "studentdetail.email" name="email" #email="ngModel" pattern = "[a-zA-z0-9]+@[a-z]+\.[a-z]{2,3}" required>
+                        <div *ngIf="email.errors && (email.dirty || email.touched)" class="alert alert-danger">
+                                <div *ngIf="email.errors.required">Email is required</div>
+                               <div *ngIf="email.errors.pattern">Invalid Email</div>
+                        </div>
                     </div>
 
                     <div class="md-form">
-                            <input type="text" id="inputIconEx1" class="form-control">
-                            <label for="inputIconEx1">Phone number</label>
+                        <input type="text" id="inputIconEx1" class="form-control" placeholder="Phone number" [(ngModel)] = "studentdetail.phone" name="phone" #phone="ngModel" pattern="[0-9]+" required minlength="10" maxlength="10">
+                        <div *ngIf="phone.errors && (phone.dirty || phone.touched)" class="alert alert-danger">
+                          <div *ngIf="phone.errors.pattern">Phone number</div>
+                        </div>   
                     </div>
+        </div>
+
+
+        <!-- Radio buttion-->
+        <div class="layout-radio">    
+            <div class="form-check mr-3">
+                    <input class="form-check-input" name="group1" type="radio" id="radio11" checked="checked" mdbInputDirective>
+                    <label class="form-check-label" for="radio11">Femail</label>
+                </div>
+            
+                <div class="form-check mr-3">
+                    <input class="form-check-input" name="group1" type="radio" id="radio21" mdbInputDirective>
+                    <label class="form-check-label" for="radio21">Male</label>
+                </div>
+            
+                <div class="form-check mr-3">
+                    <input class="form-check-input" name="group1" type="radio" id="radio31" mdbInputDirective>
+                    <label class="form-check-label" for="radio31">Other</label>
+            </div>
         </div>
 
 <!-- Adress-->
     <div class="addres-container">
-        <!-- Default input -->
         <div class="form-group">
             <label for="inputAddress">Address</label>
-            <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+            <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St" [(ngModel)] = "studentdetail.adress" name="adress" #adress="ngModel" required>
         </div>
-        <!-- Default input -->
+       
         <div class="form-group">
-            <label for="inputAddress2">Address 2</label>
-            <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+            <label for="inputAddress2">Address2</label>
+            <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor" [(ngModel)] = "studentdetail.adress2" name="adress2" #adress2="ngModel" required>
         </div>
-        <!-- Grid row -->
+
+
         <div class="form-row">
-            <!-- Default input -->
+  
             <div class="form-group col-md-6">
                 <label for="inputCity">City</label>
-                <input type="text" class="form-control" id="inputCity" placeholder="New York City">
+                <input type="text" class="form-control" id="inputCity" placeholder="Banglore" [(ngModel)] = "studentdetail.city" name="city" #city="ngModel" required>
             </div>
-            <!-- Default input -->
+
             <div class="form-group col-md-6">
                 <label for="inputZip">Zip</label>
-                <input type="text" class="form-control" id="inputZip" placeholder="11206-1117">
+                <input type="text" class="form-control" id="inputZip" placeholder="560076" [(ngModel)] = "studentdetail.zip" name="zip" #zip="ngModel" minlength="6" maxlength="6" required>
             </div>
         </div>
     </div>    
     <!-- Adress -->
 
-    <button type="button" class="btn" (click) = "onNext()">Next</button>
-    <button type="button" class="btn">Clear</button>
+    <button [disabled] = "studentdetail.invalid" type="button" class="btn" (click) = "onNext()">Next</button>
+    <!--<button type="button" class="btn"  (click) = "onRest()"> Reset </button>-->
+</form>
 <!--</form> -->

@@ -9,3 +9,7 @@ import { EduDetailsComponent } from './edu-details/edu-details.component';
   declarations: [EduDetailsComponent]
 })
 export class EduDetailsModule { }
+
+export class eduDetails {
+  
+}

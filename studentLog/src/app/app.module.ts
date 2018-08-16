@@ -1,7 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
+import { NgModule} from '@angular/core';
 import { MDBBootstrapModule } from 'angular-bootstrap-md'
 import { RouterModule } from '@angular/router';
+import { FormsModule }  from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { appRoutes } from './app.routing';
 import { AppComponent } from './app.component';
@@ -19,6 +21,8 @@ import { EduDetailsComponent } from './edu-details/edu-details/edu-details.compo
     BrowserModule,
     MDBBootstrapModule.forRoot(),
     RouterModule.forRoot(appRoutes),
+    FormsModule,
+    ReactiveFormsModule
   ],
   
   providers: [],

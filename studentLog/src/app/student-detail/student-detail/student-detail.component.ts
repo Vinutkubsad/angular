@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Routes, Router } from '@angular/router';
+import { FormControl } from '@angular/forms';
 //import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 
 @Component({
@@ -19,5 +20,4 @@ export class StudentDetailComponent implements OnInit {
   onNext = function(){
     this.rou.navigateByUrl ('/edu-details');
   }
-  
 }
