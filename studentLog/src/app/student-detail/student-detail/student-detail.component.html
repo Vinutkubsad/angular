@@ -1,5 +1,5 @@
 
-<form #studentdetail = "ngForm">
+<form  *ngIf = "!showForm" >
     <div class="layout">
         <!-- User name  -->
             <div class="md-form">
@@ -42,20 +42,20 @@
 
         <!-- Radio buttion-->
         <div class="layout-radio">    
-            <div class="form-check mr-3">
-                    <input class="form-check-input" name="group1" type="radio" id="radio11" checked="checked" mdbInputDirective>
+                 <div class="form-check mr-3">
+                    <input class="form-check-input" value="1" name="group1" type="radio" id="radio11" [(ngModel)]="studentdetail.check1"  mdbInputDirective>
                     <label class="form-check-label" for="radio11">Femail</label>
                 </div>
             
                 <div class="form-check mr-3">
-                    <input class="form-check-input" name="group1" type="radio" id="radio21" mdbInputDirective>
+                    <input class="form-check-input" value="2"name="group1" type="radio" id="radio21" [(ngModel)]="studentdetail.check2" mdbInputDirective>
                     <label class="form-check-label" for="radio21">Male</label>
                 </div>
             
-                <div class="form-check mr-3">
-                    <input class="form-check-input" name="group1" type="radio" id="radio31" mdbInputDirective>
+             <!--   <div class="form-check mr-3">
+                    <input class="form-check-input" name="group1" type="radio" id="radio31" [(ngModel)] ="studentdetail.check3" checked="unchecked" mdbInputDirective>
                     <label class="form-check-label" for="radio31">Other</label>
-            </div>
+                </div>-->
         </div>
 
 <!-- Adress-->
@@ -86,7 +86,65 @@
     </div>    
     <!-- Adress -->
 
-    <button [disabled] = "studentdetail.invalid" type="button" class="btn" (click) = "onNext()">Next</button>
+    <button  type="button" class="btn" (click) = "onNext()">Next</button>
     <!--<button type="button" class="btn"  (click) = "onRest()"> Reset </button>-->
 </form>
+
 <!--</form> -->
+
+
+<!--Form 2-->
+<table class="table table-hover" *ngIf = "showForm" >
+    <thead>
+      <tr>
+        <th scope="col">Qualification</th>
+        <th scope="col">Board/University/Collage name</th>
+        <th scope="col">Persentage</th>
+        <th scope="col">Year of passing</th>
+      </tr>
+    </thead>
+      <tbody>
+        <tr>
+          <th scope="row">Class X</th>
+          <td><input mdbInputDirective type="text" id="form1" class="form-control" [(ngModel)] = "education.b1" ></td>
+          <td><input mdbInputDirective type="text" id="form1" class="form-control" [(ngModel)] = "education.b2" ></td>
+          <td><input mdbInputDirective type="text" id="form1" class="form-control" [(ngModel)] = "education.b3" ></td>
+          </tr>
+        <tr>
+          <th scope="row">Class XII</th>
+          <td><input mdbInputDirective type="text" id="form1" class="form-control" [(ngModel)] = "education.c1" ></td>
+          <td><input mdbInputDirective type="text" id="form1" class="form-control" [(ngModel)] = "education.c2" ></td>
+          <td><input mdbInputDirective type="text" id="form1" class="form-control"[(ngModel)] = "education.c3" ></td>
+        </tr>
+        <tr>
+          <th scope="row">Graduate</th>
+          <td><input mdbInputDirective type="text" id="form1" class="form-control" [(ngModel)] = "education.d1"></td>
+          <td><input mdbInputDirective type="text" id="form1" class="form-control" [(ngModel)] = "education.d2"></td>
+          <td><input mdbInputDirective type="text" id="form1" class="form-control" [(ngModel)] = "education.d3"> </td>
+        </tr>
+       <tr>
+          <th scope="row">Post-Graduate</th>
+          <td><input mdbInputDirective type="text" id="form1" class="form-control" [(ngModel)] = "education.e1"></td>
+          <td><input mdbInputDirective type="text" id="form1" class="form-control" [(ngModel)] = "education.e2"></td>
+          <td><input mdbInputDirective type="text" id="form1" class="form-control" [(ngModel)] = "education.e3"></td>
+        </tr>
+    </tbody>
+  </table>
+
+    <div class slect-item *ngIf = "showForm">
+        <select class="browser-default" [(ngModel)]="education.list" (change)="change(education.list)">
+            <option value=""disabled selected>Choose your option</option>
+            <option value="1">Angular 6</option>
+            <option value="2">Java</option>
+            <option value="3">Python</option>
+            <option value="4">Machine Learning</option>
+            <option value="5">Big Data</option>
+        </select>
+    </div>
+
+  <div class="form2-btn">
+    <button mdbBtn type="button" color="deep-purple" class="waves-light" mdbWavesEffect *ngIf = "showForm"(click) = "showForm=False"  >previous</button>
+    <button mdbBtn type="button" color="deep-purple" class="waves-light" mdbWavesEffect *ngIf = "showForm" (click) = "showForm=true" >Submit</button>
+  </div>
+  
+
