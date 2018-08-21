@@ -13,7 +13,7 @@ export class StudentDetailComponent implements OnInit {
   //studentDetails: FormGroup;
   showForm = false;
  public studentdetail:student=new student();
- public education:education=new education();
+ public education:student=new student();
  
   constructor() { 
 
@@ -44,8 +44,6 @@ export class student{
   check1: string;
   check2: string;
   check3: string;
-}
-export class education{
   b1:string;
   b2:string;
   b3:string;
