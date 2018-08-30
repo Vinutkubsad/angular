@@ -27,9 +27,9 @@ export class StudentDetailComponent implements OnInit {
     //this.rou.navigateByUrl ('/edu-details');
   }
   change(e){
-   this. education.list=e;
+   this.education.list=e;
   }
-  
+
 }
 export class student{
   firstName:string;

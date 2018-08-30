@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Application-prog-interface</title>
+    <script
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+
+    <script src="file.js"></script>
+    <link rel="stylesheet" type="text/css" href="file.css">
+</head>
+<body>
+    <h1>hello</h1>
+
+    <a href="#" onclick="return getSuccessOutput();"> test success </a> | <a href="#" onclick="return getFailOutput(); return false;"> test failure</a>
+    <div id="output">waiting for action</div>
+    
+    <table>
+        <tr>
+          <th>ID</th>
+          <th>Name</th> 
+          <th>Company</th>
+        </tr>
+        <span>
+
+            
+            <tr id="tddata">
+            </tr>   
+        </tr>   
+        </span>
+      </table>
+
+</body>
+</html>
